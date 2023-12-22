@@ -144,13 +144,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startClickEffect(gameButton: View, isDefeat: Boolean) {
+
         val soundID = if (isDefeat) R.raw.defeat_sound else gameButtonsToSounds[gameButton]!!
+
         lifecycleScope.launch {
             gameButton.startAnimation(outAnimation)
             playSound(soundID)
             delay(150)
             gameButton.startAnimation(inAnimation)
         }
+
     }
 
     private fun playSound(soundID: Int) {
